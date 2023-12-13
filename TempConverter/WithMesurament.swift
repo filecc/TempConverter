@@ -84,7 +84,21 @@ struct WithMesurament: View {
                    
                     let original = Measurement(value: value, unit: unitChoise1)
                     
-                    Text("\(original.converted(to: unitChoise2).value.formatted())")
+                    HStack{
+                        VStack {
+                            Text(userChoice1)
+                                .font(.body)
+                            Text("\(original.value.formatted()) ˚\(String(userChoice1.first!))")
+                                .font(.title)
+                        }
+                        Spacer()
+                        VStack {
+                            Text(userChoice2)
+                                .font(.body)
+                            Text("\(original.converted(to: unitChoise2).value.formatted()) ˚\(String(userChoice2.first!))")
+                                .font(.title)
+                        }
+                    }
                 }
                 
                 
